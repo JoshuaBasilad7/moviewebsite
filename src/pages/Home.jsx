@@ -43,34 +43,36 @@ function Home() {
     }
   };
 
-  return (
-    <div className="home">
-      <form onSubmit={handleSearch} className="search-form">
-        <input
-          type="text"
-          placeholder="Search Movies..."
-          className="search-input"
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-        />
-        <button type="submit" className="search-btn">
-          Search
-        </button>
-      </form>
+return (
+  <div className="home">
+    <form onSubmit={handleSearch} className="search-form">
+      <input
+        type="text"
+        placeholder="Search Movies..."
+        className="search-input"
+        value={searchQuery}
+        onChange={(e) => setSearchQuery(e.target.value)}
+      />
+      <button type="submit" className="search-btn">
+        Search
+      </button>
+    </form>
 
-      {error && <div className="error-message">{error}</div>}
+    {error && <div className="error-message">{error}</div>}
 
-      {loading ? (
-        <div className="loading">Loading...</div>
-      ) : (
-        <div className="movies-grid">
-          {movies.map((movie) => (
-            <MovieCard movie={movie} key={movie.id} />
-          ))}
-        </div>
-      )}
-    </div>
-  );
+    {loading ? (
+      <div className="loading">Loading...</div>
+    ) : movies.length === 0 ? (
+      <div className="no-results">Movie not found.</div>
+    ) : (
+      <div className="movies-grid">
+        {movies.map((movie) => (
+          <MovieCard movie={movie} key={movie.id} />
+        ))}
+      </div>
+    )}
+  </div>
+);
 }
 
 export default Home;

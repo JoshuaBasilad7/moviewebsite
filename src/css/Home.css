@@ -61,3 +61,21 @@
   width: 100%;
   box-sizing: border-box;
 }
+
+.no-results {
+  text-align: center;
+  color: #fff;
+  font-size: 1.5rem;
+  margin-top: 2rem;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px; /* or 100vh if you want it full screen */
+  font-size: 2rem;
+  font-weight: bold;
+  color: #ffffff;
+  text-align: center;
+}
